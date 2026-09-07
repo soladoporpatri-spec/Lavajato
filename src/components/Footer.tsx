@@ -11,13 +11,11 @@ export function Footer() {
           
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded bg-blue-600 flex items-center justify-center font-bold text-white">
-                P
-              </div>
+              <img src="/logo.jpg" alt="Logo" className="w-10 h-10 rounded-lg object-cover" />
               <span className="font-bold text-xl text-white">Lavajato do Paulinho</span>
             </div>
             <p className="text-slate-400 text-sm max-w-xs">
-              Lavagem automotiva profissional em Anápolis - GO. Cuidado, brilho e qualidade para o seu veículo.
+              Lava rápido eficiente em Anápolis - GO. Chegou, lavou, brilhou. Sem frescura e com qualidade.
             </p>
           </div>
 
