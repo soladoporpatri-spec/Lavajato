@@ -1,138 +1,49 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { media } from "@/config/media";
-import { businessData } from "@/config/business";
+import { motion } from "framer-motion";
 
-const steps = [
-  {
-    title: "Lavagem completa",
-    description: "A primeira etapa é tirar a sujeira e lavar o veículo.",
-    short: "Lavagem",
-    visual: "Água e espuma",
-  },
-  {
-    title: "Secagem detalhada",
-    description:
-      "Depois da lavagem, é hora de secar a carroceria e cuidar dos detalhes.",
-    short: "Secagem",
-    visual: "Atenção aos detalhes",
-  },
-  {
-    title: "Acabamento com cera",
-    description: `Quer um acabamento a mais? A cera em pasta é opcional, por +R$${businessData.prices.wax}.`,
-    short: "Acabamento",
-    visual: "O toque final",
-  },
-];
 export function Process() {
-  const [active, setActive] = useState(0);
-  const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const viewportCenter = window.innerHeight / 2;
-      const candidates = stepRefs.current
-        .map((step, index) => {
-          if (!step) return null;
-          const bounds = step.getBoundingClientRect();
-          return {
-            index,
-            distance: Math.abs(bounds.top + bounds.height / 2 - viewportCenter),
-          };
-        })
-        .filter(
-          (item): item is { index: number; distance: number } => item !== null,
-        );
-      const nearest = candidates.sort((a, b) => a.distance - b.distance)[0];
-      if (nearest) setActive(nearest.index);
-    };
-    const schedule = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-    schedule();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule, { passive: true });
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-    };
-  }, []);
+  const steps = [
+    { num: "01", title: "LAVAGEM COMPLETA", desc: "Remoção cuidadosa da sujeira e resíduos, garantindo uma limpeza profunda sem agredir a pintura." },
+    { num: "02", title: "SECAGEM DETALHADA", desc: "Secagem completa da carroceria e dos detalhes, evitando manchas e preparando a superfície para o acabamento." },
+    { num: "03", title: "ACABAMENTO COM CERA", desc: "Aplicação de cera em pasta para proteger a pintura, realçar a cor e entregar um brilho intenso e duradouro." },
+  ];
+
   return (
-    <section
-      id="processo"
-      className="process section-space"
-      aria-labelledby="process-title"
-    >
-      <div className="wrap">
-        <div className="section-heading">
-          <div>
-            <p className="section-label">Capricho do começo ao fim</p>
-            <h2 id="process-title">
-              Do sujo
-              <br />
-              ao brilho.
-            </h2>
-          </div>
-          <p>
-            Lavagem, secagem e o acabamento que você escolher.
-            <br />
-            Um passo de cada vez.
-          </p>
-        </div>
-        <div className="process-grid">
-          <div className={`process-visual process-state-${active}`}>
-            <div className="process-visual-top">
-              <span>O cuidado em 3 etapas</span>
-              <strong aria-hidden="true">0{active + 1}</strong>
-            </div>
-            <Image
-              src={media.heroMedium}
-              alt="Ilustração das etapas de cuidado de um carro"
-              width={960}
-              height={640}
-            />
-            <div className="process-water" aria-hidden="true" />
-            <div className="process-shine" aria-hidden="true" />
-            <div className="process-visual-bottom">
-              <span>{steps[active].visual}</span>
-              <span>Ilustração criada com IA</span>
-            </div>
-            <div className="process-selector" aria-label="Visualizar etapa">
-              {steps.map((step, index) => (
-                <button
-                  key={step.short}
-                  onClick={() => setActive(index)}
-                  aria-pressed={active === index}
-                >
-                  {step.short}
-                </button>
-              ))}
-            </div>
-          </div>
-          <ol className="process-steps">
-            {steps.map((step, index) => (
-              <li
-                key={step.title}
-                data-step={index}
-                data-active={active === index}
-                ref={(element) => {
-                  stepRefs.current[index] = element;
-                }}
-              >
-                <span className="step-number">0{index + 1}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  {index === 2 && (
-                    <span className="optional-tag">Adicional opcional</span>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
+    <section className="py-32 bg-[#01030b] relative overflow-hidden">
+      {/* Dynamic lighting effect in background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-24"
+        >
+          <h2 className="font-display text-4xl md:text-7xl font-black text-slate-800 uppercase tracking-tighter">
+            O PROCESSO.
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+          {steps.map((step, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.15, duration: 0.8 }}
+              className="group relative border-t border-slate-800 pt-8"
+            >
+              <div className="absolute top-0 left-0 w-0 h-px bg-blue-500 group-hover:w-full transition-all duration-700 ease-out" />
+              
+              <div className="font-display text-5xl font-black text-slate-800 group-hover:text-blue-500/50 transition-colors duration-500 mb-4">
+                {step.num}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3 tracking-wide">{step.title}</h3>
+              <p className="text-slate-400 font-light text-sm">{step.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

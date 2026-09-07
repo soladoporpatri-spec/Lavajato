@@ -1,135 +1,81 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
-import { businessData } from "@/config/business";
+import { businessData } from "../config/business";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-const oswald = Oswald({
-  subsets: ["latin"],
-  variable: "--font-oswald",
-  display: "swap",
-});
-const siteUrl = "https://lavajato-snowy.vercel.app";
-const title = "Lavajato do Paulinho | Lavagem de carro em Anápolis";
-const description = `Lavajato em Anápolis, no Cidade Jardim. Carros a partir de R$${businessData.prices.car}, SUVs e caminhonetes a partir de R$${businessData.prices.suv}. Confira os serviços e agende pelo WhatsApp.`;
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title,
-  description,
-  alternates: { canonical: "/" },
-  keywords: [
-    "lavajato em Anápolis",
-    "lava jato Anápolis",
-    "lavagem automotiva",
-    "lavagem de carro Anápolis",
-    "lavagem de SUV Anápolis",
-    "Cidade Jardim",
-    "Lavajato do Paulinho",
-  ],
+  title: "Melhor Lavajato em Anápolis | Lavajato do Paulinho",
+  description: "Procurando o melhor lava rápido em Anápolis? Lavagem completa, estética automotiva, lavagem detalhada, cera e motor. Agende sua lavagem no Lavajato do Paulinho.",
+  keywords: ["Melhor lavajato", "Estética automotiva Anápolis", "Lavagem de carro detalhada", "Lava rápido em Anápolis", "Lava Jato", "Lavar motor", "Lavar por baixo", "Guariba"],
   openGraph: {
-    title,
-    description,
-    url: siteUrl,
-    siteName: businessData.name,
-    images: [
-      {
-        url: "/images/hero-1536.webp",
-        width: 1536,
-        height: 1024,
-        alt: "Lavajato do Paulinho, imagem ilustrativa",
-      },
-    ],
+    title: "Melhor Lavajato em Anápolis | Lavajato do Paulinho",
+    description: "Procurando o melhor lava rápido em Anápolis? Lavagem completa, estética automotiva e lavagem detalhada.",
+    images: ["/logo.jpg"],
     locale: "pt_BR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/images/hero-1536.webp"],
-  },
-  icons: { icon: "/logo.jpg", apple: "/logo.jpg" },
+  icons: {
+    icon: '/logo.jpg', // Forçando o uso da logo como favicon
+    apple: '/logo.jpg'
+  }
 };
-export const viewport: Viewport = {
-  themeColor: "#080b0d",
-  width: "device-width",
-  initialScale: 1,
-};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoWash",
-  "@id": `${siteUrl}/#lavajato`,
-  name: businessData.name,
-  image: `${siteUrl}/logo.jpg`,
-  url: siteUrl,
-  telephone: `+${businessData.phone}`,
-  address: {
+  "name": "Lavajato do Paulinho",
+  "image": "https://lavajato-snowy.vercel.app/logo.jpg",
+  "@id": "",
+  "url": "https://lavajato-snowy.vercel.app",
+  "telephone": businessData.displayPhone,
+  "address": {
     "@type": "PostalAddress",
-    streetAddress: "Av. Brasil Norte, 1310 - Q 22 - Cidade Jardim",
-    addressLocality: "Anápolis",
-    addressRegion: "GO",
-    postalCode: "75080-240",
-    addressCountry: "BR",
+    "streetAddress": "Av. Brasil Norte, 1310 - Q 22",
+    "addressLocality": "Anápolis",
+    "addressRegion": "GO",
+    "postalCode": "75080-240",
+    "addressCountry": "BR"
   },
-  areaServed: { "@type": "City", name: "Anápolis" },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Lavagens e adicionais",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: businessData.prices.car,
-          priceCurrency: "BRL",
-        },
-        itemOffered: {
-          "@type": "Service",
-          name: "Lavagem de carros de passeio",
-        },
-      },
-      {
-        "@type": "Offer",
-        priceSpecification: {
-          "@type": "PriceSpecification",
-          minPrice: businessData.prices.suv,
-          priceCurrency: "BRL",
-        },
-        itemOffered: {
-          "@type": "Service",
-          name: "Lavagem de SUVs e caminhonetes",
-        },
-      },
-      {
-        "@type": "Offer",
-        price: businessData.prices.wax,
-        priceCurrency: "BRL",
-        itemOffered: {
-          "@type": "Service",
-          name: "Adicional opcional de cera em pasta",
-        },
-      },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -16.3267,
+    "longitude": -48.9528
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
     ],
+    "opens": "08:00",
+    "closes": "18:00"
   },
+  "priceRange": "$$" 
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${oswald.variable}`}>
+    <html lang="pt-BR" className={`scroll-smooth ${inter.variable} ${oswald.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body className="antialiased bg-slate-950 text-slate-50 font-sans">
+        {children}
+      </body>
     </html>
   );
 }
