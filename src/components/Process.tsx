@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 
 export function Process() {
   const steps = [
-    { num: "01", title: "PRÉ-LAVAGEM", desc: "Remoção pesada sem atrito, preservando a pintura." },
-    { num: "02", title: "LAVAGEM DETALHADA", desc: "Shampoo neutro e luvas de microfibra premium." },
-    { num: "03", title: "ACABAMENTO", desc: "Secagem técnica, limpeza de caixas de roda e vidros." },
-    { num: "04", title: "BRILHO EXTRA", desc: "Aplicação de cera e revitalização de plásticos." },
+    { num: "01", title: "LAVAGEM COMPLETA", desc: "Remoção cuidadosa da sujeira e resíduos, garantindo uma limpeza profunda sem agredir a pintura." },
+    { num: "02", title: "SECAGEM DETALHADA", desc: "Secagem completa da carroceria e dos detalhes, evitando manchas e preparando a superfície para o acabamento." },
+    { num: "03", title: "ACABAMENTO COM CERA", desc: "Aplicação de cera em pasta para proteger a pintura, realçar a cor e entregar um brilho intenso e duradouro." },
   ];
 
   return (
@@ -26,7 +25,7 @@ export function Process() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
           {steps.map((step, i) => (
             <motion.div 
               key={i}
