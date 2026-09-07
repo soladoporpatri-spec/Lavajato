@@ -1,0 +1,78 @@
+[
+  {
+    "viewport": "360x800",
+    "overflow": false,
+    "links": 11,
+    "menu": "pass",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "390x844",
+    "overflow": false,
+    "links": 11,
+    "menu": "pass",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "430x932",
+    "overflow": false,
+    "links": 11,
+    "menu": "pass",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "768x1024",
+    "overflow": false,
+    "links": 11,
+    "menu": "desktop",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "1366x768",
+    "overflow": false,
+    "links": 11,
+    "menu": "desktop",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "1440x900",
+    "overflow": false,
+    "links": 11,
+    "menu": "desktop",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "viewport": "1920x1080",
+    "overflow": false,
+    "links": 11,
+    "menu": "desktop",
+    "comparison": "keyboard and buttons pass",
+    "processScroll": "pass",
+    "accessibilityViolations": 0,
+    "browserErrors": 0
+  },
+  {
+    "reducedMotion": "pass"
+  },
+  {
+    "withoutJavaScript": "content, prices and booking links pass"
+  }
+]
