@@ -1,7 +1,6 @@
-﻿export default {
+export default {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: '/lavajato',
 };
