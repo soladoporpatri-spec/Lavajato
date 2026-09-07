@@ -104,25 +104,31 @@ export function Services() {
           </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <ServiceCard 
-            title="Carros"
+            title="Carros Passeio"
             price={businessData.prices.car}
-            description="Limpeza minuciosa para o dia a dia. Seu carro renovado, com pintura protegida e aspecto de zero km."
+            description="Lava rápido eficiente para o dia a dia. Chegou, lavou, brilhou."
             msg={`Olá, Paulinho! Vi no site a lavagem para carros a partir de R$ ${businessData.prices.car} e gostaria de agendar.`}
           />
           <ServiceCard 
             title="SUVs & Caminhonetes"
             price={businessData.prices.suv}
-            description="Tratamento peso-pesado. Removemos sujeira pesada mantendo a integridade da lataria de veículos grandes."
+            description="Tratamento para veículos grandes. Limpeza bruta sem enrolação."
             highlight={true}
             msg={`Olá, Paulinho! Vi no site a lavagem para SUVs e caminhonetes a partir de R$ ${businessData.prices.suv} e gostaria de agendar.`}
           />
           <ServiceCard 
-            title="Acabamento em Cera"
-            price="Opcional"
-            description="Aquele brilho de espelho e proteção hidrofóbica extra que faz a água escorregar sem deixar marcas."
-            msg="Olá, Paulinho! Gostaria de fazer uma lavagem e adicionar aplicação de cera. Pode me passar os valores?"
+            title="Acabamento Cera Pasta"
+            price={`+ R$10`}
+            description="Adicione brilho extra e proteção na pintura com nossa cera em pasta."
+            msg="Olá, Paulinho! Gostaria de fazer uma lavagem e adicionar a cera em pasta de R$10."
+          />
+          <ServiceCard 
+            title="Serviços Pesados"
+            price="A combinar"
+            description="Guariba, lavagem por baixo (chassi) e lavagem de motor. Consulte preços."
+            msg="Olá, Paulinho! Gostaria de consultar os preços para serviços como Guariba / Lavar por baixo / Motor."
           />
         </div>
       </div>

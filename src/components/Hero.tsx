@@ -52,12 +52,12 @@ export function Hero() {
           </span>
           
           <h1 className="font-display text-7xl md:text-[10vw] leading-[0.85] font-black text-white mb-6 tracking-tighter">
-            SEU CARRO.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 text-glow">OUTRO NÍVEL.</span>
+            RÁPIDO.<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 text-glow">BEM FEITO.</span>
           </h1>
 
           <p className="text-slate-300 max-w-xl text-lg md:text-xl font-light mb-12">
-            Lavagem profissional, cuidado em cada detalhe e aquele brilho que faz diferença.
+            Lava rápido de verdade. Chegou, lavou, brilhou. Sem frescura e com muita qualidade pro seu dia a dia.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
