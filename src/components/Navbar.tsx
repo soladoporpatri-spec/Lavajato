@@ -30,9 +30,12 @@ export function Navbar() {
         )}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <a href="#" className="flex flex-col">
-            <span className="font-display text-2xl tracking-tighter text-white font-black leading-none">PAULINHO</span>
-            <span className="text-[9px] font-bold tracking-[0.3em] text-blue-500 uppercase">Car Wash</span>
+          <a href="#" className="flex items-center gap-3">
+            <img src="/logo.jpg" alt="Lavajato do Paulinho Logo" className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border border-white/10" />
+            <div className="flex flex-col hidden sm:flex">
+              <span className="font-display text-2xl tracking-tighter text-white font-black leading-none">PAULINHO</span>
+              <span className="text-[9px] font-bold tracking-[0.3em] text-blue-500 uppercase">Car Wash</span>
+            </div>
           </a>
 
           {/* Desktop Nav */}
